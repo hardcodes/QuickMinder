@@ -1,0 +1,987 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2541" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1875"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="HCMainViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="QuickMinderBackground-iPhone.png" id="DgA-dp-L2t">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="QuickMinderNavigationBackground-iPhone.png" id="N2g-OL-Mhe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="CornerUL~iphone.png" id="wlj-vG-T6t" userLabel="UpperLeftCorner">
+                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="CornerUR~iphone.png" id="tbp-Pe-9LM" userLabel="UpperRightCorner">
+                                <rect key="frame" x="272" y="0.0" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="10" userLabel="ButtonSettings">
+                                <rect key="frame" x="4" y="8" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Die Anwendung einrichten"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" backgroundImage="gear~iphone.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6" kind="modal" identifier="showPreferences" modalTransitionStyle="flipHorizontal" id="11"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="iXt-1P-Ot7" userLabel="ButtonTrash">
+                                <rect key="frame" x="283" y="7" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Nanchrichtentext löschen"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" backgroundImage="trash~iphone.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTrashTouchUpInside:" destination="2" eventType="touchUpInside" id="akt-1s-rbt"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="itk-7r-QA2" userLabel="TextFieldSubject" customClass="HCUITextField">
+                                <rect key="frame" x="9" y="49" width="302" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <connections>
+                                    <action selector="textFieldSubjectDidEndOnExit:" destination="2" eventType="editingDidEndOnExit" id="rE2-Jv-o9c"/>
+                                    <outlet property="delegate" destination="2" id="gVy-ux-BFx"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.99999999999999989" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="r11-wx-7b6" userLabel="TextViewMessageBody" customClass="HCUITextViewRoundedCorners">
+                                <rect key="frame" x="10" y="80" width="300" height="370"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="5on-yg-iAL"/>
+                                </connections>
+                            </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="nlO-Ds-oeC">
+                                <rect key="frame" x="142" y="90" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <view clearsContextBeforeDrawing="NO" contentMode="center" id="AcJ-9q-KC9" userLabel="PortaitNavigationView">
+                                <rect key="frame" x="51" y="0.0" width="219" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" image="Middlenose~iphone.png" id="qlY-Iw-SNp">
+                                        <rect key="frame" x="119" y="0.0" width="48" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WUx-uT-vQ7" userLabel="ButonSendMail1" customClass="HCUIButton">
+                                        <rect key="frame" x="0.0" y="8" width="115" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" label="Email an Empänger Nr.1 schicken"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="1">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="blue-1x1.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonSendMailTouched:" destination="2" eventType="touchUpInside" id="0wS-ok-7iw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="ubT-cS-9JZ" userLabel="ButtonToolPopover" customClass="HCUIButton">
+                                        <rect key="frame" x="127" y="8" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" backgroundImage="PlusIcon~iphone.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonToolPopoverTouched:" destination="2" eventType="touchUpInside" id="KAP-uh-2uh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="VrM-XE-CWf" userLabel="ButtonShowMailReceiversPortrait" customClass="HCUIButton">
+                                        <rect key="frame" x="178" y="8" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label=""/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="..." backgroundImage="MailEnvelopeMonochrome~iphone.png">
+                                            <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="gXW-7f-ul3" kind="modal" identifier="showMailButtonsPortrait" id="ehh-ns-Ox4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="UoS-dO-axa" userLabel="LandscapeNavigationView">
+                                <rect key="frame" x="51" y="0.0" width="219" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.40000000000000013" contentMode="scaleToFill" image="Middlenose~iphone.png" id="ogc-xI-GCi">
+                                        <rect key="frame" x="85" y="0.0" width="48" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gx5-Ae-a9N" userLabel="ButonSendMail1" customClass="HCUIButton">
+                                        <rect key="frame" x="0.0" y="9" width="90" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" label="Email an Empänger Nr.1 schicken"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="1">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="blue-1x1.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonSendMailTouched:" destination="2" eventType="touchUpInside" id="8Ag-xx-vam"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="2Kq-7h-kpA" userLabel="ButtonToolPopover" customClass="HCUIButton">
+                                        <rect key="frame" x="93" y="8" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="PlusIcon~iphone.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonToolPopoverTouched:" destination="2" eventType="touchUpInside" id="1q2-Oi-t3W"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="szB-VB-Acl" userLabel="ButtonShowMailReceiversLandscape" customClass="HCUIButton">
+                                        <rect key="frame" x="130" y="8" width="70" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label=""/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="..." backgroundImage="MailEnvelopeMonochrome~iphone.png">
+                                            <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="gXW-7f-ul3" kind="modal" identifier="showMailButtonsLandscape" id="KqN-eS-uNU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="PJq-2M-dn6" userLabel="ViewHelpNote">
+                                <rect key="frame" x="18" y="35" width="180" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="note-180x175.png" id="u7m-dL-1Ye">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Zahnrad antippen, um mind. eine Emailadresse einzugeben" id="GEh-kJ-egL">
+                                        <rect key="frame" x="32" y="31" width="120" height="124"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="nlO-Ds-oeC" id="Wff-6P-0h0"/>
+                        <outlet property="buttonSendMail1Landscape" destination="gx5-Ae-a9N" id="Gyh-Y4-bsb"/>
+                        <outlet property="buttonSendMail1Portrait" destination="WUx-uT-vQ7" id="CFr-Dq-2s4"/>
+                        <outlet property="buttonShowMailReceiversLandscape" destination="szB-VB-Acl" id="2Vq-wO-NDt"/>
+                        <outlet property="buttonShowMailReceiversPortrait" destination="VrM-XE-CWf" id="DJg-Nk-AhQ"/>
+                        <outlet property="buttonToolPopoverLandscape" destination="2Kq-7h-kpA" id="0gQ-wi-ihq"/>
+                        <outlet property="buttonToolPopoverPortrait" destination="ubT-cS-9JZ" id="oEg-Tv-sCR"/>
+                        <outlet property="buttonTrash" destination="iXt-1P-Ot7" id="AdW-4Q-Ef3"/>
+                        <outlet property="landscapeNavigationView" destination="UoS-dO-axa" id="o0Q-q2-294"/>
+                        <outlet property="portraitNavigationView" destination="AcJ-9q-KC9" id="157-zB-EwI"/>
+                        <outlet property="textFieldSubject" destination="itk-7r-QA2" id="EAE-Eg-GfF"/>
+                        <outlet property="textViewMessageBody" destination="r11-wx-7b6" id="gjS-mK-3tV"/>
+                        <outlet property="viewHelpNote" destination="PJq-2M-dn6" id="LqG-eZ-L4D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-586" y="-176"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="9">
+            <objects>
+                <viewController id="6" customClass="HCSettingsViewController" sceneMemberID="viewController">
+                    <view key="view" tag="60" contentMode="scaleToFill" id="7" userLabel="PreferencesView">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="QuickMinderBackground-iPhone.png" id="8gI-ku-3rN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="QuickMinderNavigationBackground-iPhone.png" id="9sP-hv-W5K">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="CornerUL~iphone.png" id="VGO-5e-YOy">
+                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="S8C-Ks-f6d" userLabel="ButtonQuitSettings">
+                                <rect key="frame" x="6" y="9" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="OK~iphone.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissViewControllerViaDelegate:" destination="6" eventType="touchUpInside" id="hKJ-rQ-srv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="Einstellungen" textAlignment="center" autoshrinkMode="minimumFontSize" id="67V-d5-lbL">
+                                <rect key="frame" x="55" y="14" width="210" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="40" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="pJk-HD-gTe">
+                                <rect key="frame" x="0.0" y="56" width="320" height="384"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view tag="21" contentMode="scaleToFill" id="9ql-nn-iI9" userLabel="View Mailaddress#1" customClass="HCUIViewRoundedCorners">
+                                        <rect key="frame" x="10" y="0.0" width="300" height="356"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="85V-M4-jMq" userLabel="textFieldMailReceiver#1" customClass="HCUITextField">
+                                                <rect key="frame" x="20" y="60" width="260" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Emailadresse der 1. Empfängers"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="HRc-dA-bZQ"/>
+                                                    <outlet property="delegate" destination="6" id="GXI-dk-22o"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="Qmq-nf-1aV" userLabel="textFieldMailAlias1" customClass="HCUITextField">
+                                                <rect key="frame" x="20" y="261" width="260" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="Eai-qc-yZO"/>
+                                                    <outlet property="delegate" destination="6" id="CPQ-RZ-Iuf"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="1. Emailempfänger" autoshrinkMode="minimumFontSize" id="PEd-k5-rEz">
+                                                <rect key="frame" x="20" y="20" width="320" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" autoshrinkMode="minimumFontSize" id="Js2-tb-SYC">
+                                                <rect key="frame" x="20" y="99" width="260" height="125"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <string key="text">Ihre Email wird an diese(n) Empfänger geschickt, wenn sie den Knopf links oben antippen. Einfach eintragen oder im Adressbuch nachschlagen (mehrere Empfänger werden durch ein Komma getrennt).</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="Sendeknopf Beschriftung" autoshrinkMode="minimumFontSize" id="q6c-In-t8U">
+                                                <rect key="frame" x="20" y="232" width="260" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" text="Der Knopf wird mit diesem Text beschriftet, damit sie ihn erkennen können." autoshrinkMode="minimumFontSize" id="zcS-Ox-Syo">
+                                                <rect key="frame" x="20" y="295" width="260" height="61"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Ljj-G2-3tL" userLabel="ButtonAddressbook1">
+                                                <rect key="frame" x="248" y="20" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" backgroundImage="lookupaddressbook~iphone.png">
+                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonLookupAddressbookTouched:" destination="6" eventType="touchUpInside" id="QXC-Z3-gln"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="22" contentMode="scaleToFill" id="pQm-kc-eEV" userLabel="View Mailaddress#2" customClass="HCUIViewRoundedCorners">
+                                        <rect key="frame" x="10" y="366" width="300" height="310"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="5jG-v1-8Jv" userLabel="textFieldMailReceiver#2" customClass="HCUITextField">
+                                                <rect key="frame" x="20" y="60" width="260" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Emailadresse der 2. Empfängers"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="2ii-uW-P0t"/>
+                                                    <outlet property="delegate" destination="6" id="XPp-c8-xCT"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="eEQ-0y-L6M" userLabel="textFieldMailAlias2" customClass="HCUITextField">
+                                                <rect key="frame" x="20" y="204" width="260" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="sbM-Ai-9Tu"/>
+                                                    <outlet property="delegate" destination="6" id="SAU-q8-3SU"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="2. Emailempfänger" autoshrinkMode="minimumFontSize" id="qTi-RF-og3">
+                                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="5" minimumFontSize="10" autoshrinkMode="minimumFontSize" id="Wu1-X6-GCY">
+                                                <rect key="frame" x="20" y="99" width="260" height="97"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <string key="text">Ihre Email wird an diese(n) Empfänger geschickt, wenn sie den Knopf rechts oben antippen. Einfach eintragen oder im Adressbuch nachschlagen.</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" text="Der Knopf wird mit diesem Text beschriftet, damit sie ihn erkennen können." autoshrinkMode="minimumFontSize" id="52h-Mp-PSk">
+                                                <rect key="frame" x="20" y="243" width="260" height="59"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="d8R-DT-py7" userLabel="ButtonAddressbook2">
+                                                <rect key="frame" x="248" y="20" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" backgroundImage="lookupaddressbook~iphone.png">
+                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonLookupAddressbookTouched:" destination="6" eventType="touchUpInside" id="vTK-CN-IKq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="22" contentMode="scaleToFill" id="OCO-wv-8f6" userLabel="View Mailaddress#3" customClass="HCUIViewRoundedCorners">
+                                        <rect key="frame" x="10" y="686" width="300" height="310"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="GeB-qn-d9w" userLabel="textFieldMailReceiver#3" customClass="HCUITextField">
+                                                <rect key="frame" x="20" y="60" width="260" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Emailadresse der 3. Empfängers"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="5iJ-8v-8ch"/>
+                                                    <outlet property="delegate" destination="6" id="6U8-HO-wyy"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="PzW-ZU-J6Y" userLabel="textFieldMailAlias3" customClass="HCUITextField">
+                                                <rect key="frame" x="20" y="204" width="260" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="J2C-Uj-M0g"/>
+                                                    <outlet property="delegate" destination="6" id="ecR-kL-Xz2"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="3. Emailempänger" autoshrinkMode="minimumFontSize" id="e3Z-lr-IkM">
+                                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="5" minimumFontSize="10" autoshrinkMode="minimumFontSize" id="6R5-0q-fRW">
+                                                <rect key="frame" x="20" y="99" width="260" height="97"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <string key="text">Ihre Email wird an diese(n) Empfänger geschickt, wenn sie den Knopf rechts oben antippen. Einfach eintragen oder im Adressbuch nachschlagen.</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" text="Der Knopf wird mit diesem Text beschriftet, damit sie ihn erkennen können." autoshrinkMode="minimumFontSize" id="1Wl-En-U2H">
+                                                <rect key="frame" x="20" y="243" width="260" height="59"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="NhW-uQ-LvH" userLabel="ButtonAddressbook3">
+                                                <rect key="frame" x="248" y="20" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" backgroundImage="lookupaddressbook~iphone.png">
+                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonLookupAddressbookTouched:" destination="6" eventType="touchUpInside" id="wN4-eX-MIj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="22" contentMode="scaleToFill" id="Udz-9Y-8nI" userLabel="View Mailaddress#4" customClass="HCUIViewRoundedCorners">
+                                        <rect key="frame" x="10" y="1006" width="300" height="310"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="u6u-n3-xZc" userLabel="textFieldMailReceiver#4" customClass="HCUITextField">
+                                                <rect key="frame" x="20" y="60" width="260" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Emailadresse der 4. Empfängers"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="1pV-Qe-IrN"/>
+                                                    <outlet property="delegate" destination="6" id="o3d-WJ-miJ"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="SZx-M6-F0P" userLabel="textFieldMailAlias4" customClass="HCUITextField">
+                                                <rect key="frame" x="20" y="204" width="260" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="dpL-2e-0qb"/>
+                                                    <outlet property="delegate" destination="6" id="C2F-R7-aZn"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="4. Emailempfänger" autoshrinkMode="minimumFontSize" id="lsL-7M-C2T">
+                                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="5" minimumFontSize="10" autoshrinkMode="minimumFontSize" id="W7R-bU-ltR">
+                                                <rect key="frame" x="20" y="99" width="260" height="97"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <string key="text">Ihre Email wird an diese(n) Empfänger geschickt, wenn sie den Knopf rechts oben antippen. Einfach eintragen oder im Adressbuch nachschlagen.</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" text="Der Knopf wird mit diesem Text beschriftet, damit sie ihn erkennen können." autoshrinkMode="minimumFontSize" id="9SO-Ak-9pt">
+                                                <rect key="frame" x="20" y="243" width="260" height="59"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="2Hh-op-Wxi" userLabel="ButtonAddressbook4">
+                                                <rect key="frame" x="248" y="20" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" backgroundImage="lookupaddressbook~iphone.png">
+                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonLookupAddressbookTouched:" destination="6" eventType="touchUpInside" id="deY-69-igv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="25" contentMode="scaleToFill" id="i8o-k8-o8g" userLabel="View misc" customClass="HCUIViewRoundedCorners">
+                                        <rect key="frame" x="10" y="1326" width="300" height="820"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="Betreff" autoshrinkMode="minimumFontSize" id="FeC-EQ-7pk">
+                                                <rect key="frame" x="20" y="0.0" width="273" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="ht5-zQ-b12" userLabel="textFieldMailSubject">
+                                                <rect key="frame" x="20" y="29" width="260" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Betreff für jede neue Nachricht"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="HbH-Uf-DYu"/>
+                                                    <outlet property="delegate" destination="6" id="0an-bR-gJC"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" text="Wird eingefügt, wenn sie eine neue Nachricht erstellen. Die erste Zeile ist immer der Betreff der Nachricht." autoshrinkMode="minimumFontSize" id="zpA-aB-mCX">
+                                                <rect key="frame" x="20" y="68" width="260" height="57"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="Rechtschreibkorrektur" autoshrinkMode="minimumFontSize" id="bFG-6u-fE6">
+                                                <rect key="frame" x="20" y="133" width="185" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" text="Rechtschreibkorrektur ein-/ausschalten (wenn sie an sich selbst schreiben, geht es so schneller)." autoshrinkMode="minimumFontSize" id="gnI-4C-4B4">
+                                                <rect key="frame" x="20" y="165" width="260" height="56"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="HSb-Ua-Qpt" userLabel="SwitchWordCorrection">
+                                                <rect key="frame" x="201" y="130" width="79" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="switchWordCorrectionChanged:" destination="6" eventType="valueChanged" id="YKG-C8-ah5"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" text="Autolöschen" autoshrinkMode="minimumFontSize" id="rUH-dY-0j1" userLabel="LabelAutoDelete">
+                                                <rect key="frame" x="20" y="229" width="151" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="tCz-nX-C75" userLabel="SwitchAutoDelete">
+                                                <rect key="frame" x="201" y="228" width="79" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="switchAutoDeleteChanged:" destination="6" eventType="valueChanged" id="Y1y-Rm-81p"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" text="Nachricht nach dem Senden direkt löschen (um schneller die nächste Nachricht  zu schreiben)." autoshrinkMode="minimumFontSize" id="f54-W3-4NM">
+                                                <rect key="frame" x="20" y="263" width="260" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="Tastatur anzeigen" autoshrinkMode="minimumFontSize" id="ykx-1K-9T9" userLabel="LabelShowKeyboard">
+                                                <rect key="frame" x="20" y="325" width="159" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="wR3-HK-ehZ" userLabel="switchShowKeyboard">
+                                                <rect key="frame" x="201" y="330" width="79" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="switchShowKeyboardChanged:" destination="6" eventType="valueChanged" id="nWO-12-CS3"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" text="Zeigt die Tastatur direkt nach dem Start der Anwendung (sie merken schon, es geht schneller)." autoshrinkMode="minimumFontSize" id="8nt-fX-Zj0">
+                                                <rect key="frame" x="20" y="365" width="260" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="How-eV-jbd" userLabel="SwitchSavePhoto">
+                                                <rect key="frame" x="201" y="436" width="79" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="switchSavePhotosChanged:" destination="6" eventType="valueChanged" id="5Y0-zO-9fi"/>
+                                                </connections>
+                                            </switch>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.25" maxValue="1" minimumValueImage="Slider-left~iphone.png" maximumValueImage="Slider-right~iphone.png" id="9nj-MR-ujb" userLabel="SliderCompressPhotos">
+                                                <rect key="frame" x="24" y="613" width="252" height="23"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="horizontalSliderCompressPhotosValueChanged:" destination="6" eventType="valueChanged" id="kqp-zB-4eE"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.25" maxValue="1" minimumValueImage="SliderResize-left~iphone.png" maximumValueImage="Slider-right~iphone.png" id="yHj-t9-yss" userLabel="SliderResizePhotos">
+                                                <rect key="frame" x="24" y="673" width="252" height="23"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="horizontalSliderResizePhotosValueChanged:" destination="6" eventType="valueChanged" id="6eJ-iJ-C86"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" text="Fotos im Gerät speichern" autoshrinkMode="minimumFontSize" id="LYm-3g-OHH" userLabel="LabelSavePhoto">
+                                                <rect key="frame" x="20" y="427" width="159" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" text="Fotoqualität beim Senden (bessere Qualität = größere Dateien)" autoshrinkMode="minimumFontSize" id="rsF-7V-7up" userLabel="LabelPhotoCompression">
+                                                <rect key="frame" x="20" y="506" width="260" height="69"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" text="Bildgröße" textAlignment="center" autoshrinkMode="minimumFontSize" id="oW9-rE-bAN">
+                                                <rect key="frame" x="117" y="643" width="66" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" text="Kompression" textAlignment="center" autoshrinkMode="minimumFontSize" id="EHL-bN-oEr">
+                                                <rect key="frame" x="106" y="583" width="88" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="Blitzlicht" autoshrinkMode="minimumFontSize" id="P6k-uS-zj3" userLabel="LabelFlash">
+                                                <rect key="frame" x="20" y="703" width="260" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="B1O-vg-6Kl" userLabel="SegmentFlash" customClass="HCUISegmentedControl">
+                                                <rect key="frame" x="20" y="757" width="260" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <segments>
+                                                    <segment title="Aus"/>
+                                                    <segment title="Auto"/>
+                                                    <segment title="An"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="segmentedControlFlashValueChanged:" destination="6" eventType="valueChanged" id="9Je-vA-qdt"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="25" contentMode="scaleToFill" id="ZaC-jq-xUY" userLabel="View experimental" customClass="HCUIViewRoundedCorners">
+                                        <rect key="frame" x="10" y="2156" width="300" height="305"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="Automatisches Senden" autoshrinkMode="minimumFontSize" id="9Jc-XS-MLB">
+                                                <rect key="frame" x="20" y="20" width="273" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" autoshrinkMode="minimumFontSize" id="0V6-Q2-T76">
+                                                <rect key="frame" x="20" y="52" width="260" height="99"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <string key="text">QuickMinder wird versuchen, den "Senden" Knopf automatisch für sie zu betätigen. Experimentell, funktioniert u.U. nicht mit neueren iOS Versionen (Nutzung auf eigene Gefahr).</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="666" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="k6q-IX-D4x" userLabel="textFieldSendMailButtonLabelText">
+                                                <rect key="frame" x="201" y="251" width="79" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Betreff für jede neue Nachricht"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingDidEndOnExit:" destination="6" eventType="editingDidEndOnExit" id="5ow-ao-7g6"/>
+                                                    <outlet property="delegate" destination="6" id="UEr-EY-2AP"/>
+                                                </connections>
+                                            </textField>
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="dE3-4x-cAu" userLabel="SwitchAutoSendMail">
+                                                <rect key="frame" x="201" y="17" width="79" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="switchAutoSendMailChanged:" destination="6" eventType="valueChanged" id="wHh-Ee-pdi"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" text="Geben sie hier die Beschriftung ihres &quot;Senden&quot; Knopfes ein. QuickMinder kann den Knopf nur anhand der Beschriftung finden!" autoshrinkMode="minimumFontSize" id="BZC-zc-bu9">
+                                                <rect key="frame" x="20" y="171" width="155" height="111"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.25" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="ATL-EZ-ZXm" userLabel="Button Info">
+                                <rect key="frame" x="287" y="14" width="18" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonInfoTouched:" destination="6" eventType="touchUpInside" id="9hi-kh-RUA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="horizontalSliderCompressPhotos" destination="9nj-MR-ujb" id="8qw-PZ-nfa"/>
+                        <outlet property="horizontalSliderResizePhotos" destination="yHj-t9-yss" id="Iae-25-WEd"/>
+                        <outlet property="scrollView" destination="pJk-HD-gTe" id="43Z-Vo-AN9"/>
+                        <outlet property="segmentedControlFlash" destination="B1O-vg-6Kl" id="PM6-gd-KOm"/>
+                        <outlet property="switchAutoDelete" destination="tCz-nX-C75" id="sHc-rb-8XE"/>
+                        <outlet property="switchAutoSendMail" destination="dE3-4x-cAu" id="7nk-Gw-K3r"/>
+                        <outlet property="switchSavePhotos" destination="How-eV-jbd" id="BpW-Ud-UJd"/>
+                        <outlet property="switchShowKeyboard" destination="wR3-HK-ehZ" id="lCY-wH-c6m"/>
+                        <outlet property="switchWordCorrection" destination="HSb-Ua-Qpt" id="uU3-0Q-uDK"/>
+                        <outlet property="textFieldMailAlias1" destination="Qmq-nf-1aV" id="Zju-nq-Da6"/>
+                        <outlet property="textFieldMailAlias2" destination="eEQ-0y-L6M" id="G8f-Wm-hvA"/>
+                        <outlet property="textFieldMailAlias3" destination="PzW-ZU-J6Y" id="scb-4Y-JZP"/>
+                        <outlet property="textFieldMailAlias4" destination="SZx-M6-F0P" id="eEp-Li-Mvp"/>
+                        <outlet property="textFieldMailReceiver1" destination="85V-M4-jMq" id="WBz-jR-zXr"/>
+                        <outlet property="textFieldMailReceiver2" destination="5jG-v1-8Jv" id="8Nh-rf-G8b"/>
+                        <outlet property="textFieldMailReceiver3" destination="GeB-qn-d9w" id="YBF-3R-7xS"/>
+                        <outlet property="textFieldMailReceiver4" destination="u6u-n3-xZc" id="yRh-s2-YfY"/>
+                        <outlet property="textFieldMailSubject" destination="ht5-zQ-b12" id="xeu-9M-kyG"/>
+                        <outlet property="textFieldSendMailButtonLabel" destination="k6q-IX-D4x" id="DNh-hX-yMI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-144" y="379"/>
+        </scene>
+        <!--More Recepients Send Mail View Contoller-->
+        <scene sceneID="gNC-HP-HNw">
+            <objects>
+                <viewController id="gXW-7f-ul3" customClass="HCMoreRecepientsSendMailViewContoller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S0S-XJ-Iks">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="QuickMinderBackground-iPhone.png" id="0Sy-eC-ded">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="QuickMinderNavigationBackground-iPhone-Bottom.png" id="IZ0-rS-o5g">
+                                <rect key="frame" x="0.0" y="412" width="320" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="CornerBL~iphone.png" id="xQL-tq-0Et">
+                                <rect key="frame" x="0.0" y="412" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="XXc-ef-Ww3" userLabel="ButtonCancel">
+                                <rect key="frame" x="6" y="421" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <accessibility key="accessibilityConfiguration" hint="Nachricht senden abbrechen" label="Abbrechen"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="exitview~iphone.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="done:" destination="gXW-7f-ul3" eventType="touchUpInside" id="t4U-Wf-EEi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jEz-FY-BC8" userLabel="ButtonSendMail1" customClass="HCUIButton">
+                                <rect key="frame" x="15" y="49" width="290" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" label="Send mail to receiver no. 1"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="blue-1x1.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonSendMailTouched:" destination="gXW-7f-ul3" eventType="touchUpInside" id="7k2-6C-IVN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5hv-kV-hu5" userLabel="ButtonSendMail2" customClass="HCUIButton">
+                                <rect key="frame" x="15" y="94" width="290" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" hint="" label="Email an Empfänger Nr. 2 schicken"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="2">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="blue-1x1.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonSendMailTouched:" destination="gXW-7f-ul3" eventType="touchUpInside" id="8c1-7k-ZNM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v5F-du-p71" userLabel="ButtonSendMail3" customClass="HCUIButton">
+                                <rect key="frame" x="15" y="139" width="290" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" hint="" label="Email an Empfänger Nr. 3 schicken"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="3">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="blue-1x1.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonSendMailTouched:" destination="gXW-7f-ul3" eventType="touchUpInside" id="cWu-HV-yxr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iz8-Uu-dvV" userLabel="ButtonSendMail4" customClass="HCUIButton">
+                                <rect key="frame" x="15" y="184" width="290" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" hint="" label="Email an Empfänger Nr. 4 schicken"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="4">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="blue-1x1.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonSendMailTouched:" destination="gXW-7f-ul3" eventType="touchUpInside" id="wtb-fc-vkt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="Nachricht senden an" autoshrinkMode="minimumFontSize" id="MIy-Zl-fYN">
+                                <rect key="frame" x="20" y="20" width="290" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                        </subviews>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="buttonSendMail1" destination="jEz-FY-BC8" id="ZZ7-xA-H1f"/>
+                        <outlet property="buttonSendMail2" destination="5hv-kV-hu5" id="y5k-BX-aZQ"/>
+                        <outlet property="buttonSendMail3" destination="v5F-du-p71" id="GZq-YY-UQt"/>
+                        <outlet property="buttonSendMail4" destination="Iz8-Uu-dvV" id="COz-Uc-JNB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jeD-Vq-CK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-144" y="-176"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CornerBL~iphone.png" width="48" height="48"/>
+        <image name="CornerUL~iphone.png" width="48" height="48"/>
+        <image name="CornerUR~iphone.png" width="48" height="48"/>
+        <image name="MailEnvelopeMonochrome~iphone.png" width="64" height="32"/>
+        <image name="Middlenose~iphone.png" width="48" height="48"/>
+        <image name="OK~iphone.png" width="32" height="32"/>
+        <image name="PlusIcon~iphone.png" width="32" height="32"/>
+        <image name="QuickMinderBackground-iPhone.png" width="320" height="480"/>
+        <image name="QuickMinderNavigationBackground-iPhone-Bottom.png" width="320" height="48"/>
+        <image name="QuickMinderNavigationBackground-iPhone.png" width="320" height="48"/>
+        <image name="Slider-left~iphone.png" width="32" height="32"/>
+        <image name="Slider-right~iphone.png" width="32" height="32"/>
+        <image name="SliderResize-left~iphone.png" width="32" height="32"/>
+        <image name="blue-1x1.png" width="1" height="1"/>
+        <image name="exitview~iphone.png" width="32" height="32"/>
+        <image name="gear~iphone.png" width="32" height="32"/>
+        <image name="lookupaddressbook~iphone.png" width="32" height="32"/>
+        <image name="note-180x175.png" width="180" height="175"/>
+        <image name="trash~iphone.png" width="32" height="32"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="KqN-eS-uNU"/>
+    </inferredMetricsTieBreakers>
+</document>
